@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2010-2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -19,30 +19,52 @@
  */
 class BarcodeGriffonPlugin {
     // the plugin version
-    def version = "0.2"
+    String version = '0.3'
     // the version or versions of Griffon the plugin is designed for
-    def griffonVersion = '0.9.2 > *' 
+    String griffonVersion = '0.9.5 > *'
     // the other plugins this plugin depends on
-    def dependsOn = [:]
+    Map dependsOn = [swing: '0.9.5']
     // resources that are included in plugin packaging
-    def pluginIncludes = []
+    List pluginIncludes = []
     // the plugin license
-    def license = 'Apache Software License 2.0'
+    String license = 'Apache Software License 2.0'
     // Toolkit compatibility. No value means compatible with all
     // Valid values are: swing, javafx, swt, pivot, gtk
-    def toolkits = ['swing']
+    List toolkits = ['swing']
     // Platform compatibility. No value means compatible with all
     // Valid values are:
     // linux, linux64, windows, windows64, macosx, macosx64, solaris
-    def platforms = []
+    List platforms = []
+    // URL where documentation can be found
+    String documentation = ''
+    // URL where source can be found
+    String source = 'https://github.com/griffon/griffon-barcode-plugin'
 
-    def author = 'Andres Almiray'
-    def authorEmail = 'aalmiray@users.sourceforge.net'
-    def title = 'Generate and display barcodes'
-    def description = '''
-Generate and display barcodes with barcode4j
-http://barcode4j.sourceforge.net
+    List authors = [
+        [
+            name: 'Andres Almiray',
+            email: 'aalmiray@yahoo.com'
+        ]
+    ]
+    String title = 'JasperReports integration'
+    // accepts Markdown syntax. See http://daringfireball.net/projects/markdown/ for details
+    String description = '''
+Provides integration with [Barcode4j][1].
+
+Usage
+-----
+
+The following nodes will become available on a View script upon installing this plugin
+
+| *Node*  | *Property*        | *Type*           | *Required*  | *Bindable* | *Notes*                               | 
+| ------- | ----------------- | ---------------- | ----------- | ---------- | ------------------------------------- |
+| barcode | generator         | String           | yes         | no         | defaults to `codabar`                 |
+|         | barcodeGenerator  | BarcodeGenerator | no          | no         | alternate way to register a generator |
+|         | message           | String           | yes         | no         | the text to code                      |
+
+Valid values for `generator` are: codabar, code39, postnet, intl2of5, ean-128, royal-mail-cbc, ean-13, datamatrix, code128, 
+ean128, pdf417, upc-a, upc-e, usps4cb, ean-8
+
+[1]: http://barcode4j.sourceforge.net/
 '''
-
-    def documentation = 'http://griffon.codehaus.org/Barcode+Plugin'
 }
