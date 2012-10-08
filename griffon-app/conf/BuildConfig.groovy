@@ -4,9 +4,14 @@ griffon.project.dependency.resolution = {
     repositories {
         griffonHome()
         mavenCentral()
+        String basePath = pluginDirPath? "${pluginDirPath}/" : ''
+        flatDir name: "barcodeLibDir", dirs: ["${basePath}lib"]
     }
     dependencies {
         compile('net.sf.barcode4j:barcode4j:2.0') { transitive = false }
+        compile 'net.glxn:qrgen:1.1',
+                'com.google.zxing:core:2.0',
+                'com.google.zxing:javase:2.0'
     }
 }
 

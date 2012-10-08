@@ -19,11 +19,11 @@
  */
 class BarcodeGriffonPlugin {
     // the plugin version
-    String version = '0.3'
+    String version = '0.4'
     // the version or versions of Griffon the plugin is designed for
-    String griffonVersion = '0.9.5 > *'
+    String griffonVersion = '1.0.0 > *'
     // the other plugins this plugin depends on
-    Map dependsOn = [swing: '0.9.5']
+    Map dependsOn = [swing: '1.0.0']
     // resources that are included in plugin packaging
     List pluginIncludes = []
     // the plugin license
@@ -46,10 +46,10 @@ class BarcodeGriffonPlugin {
             email: 'aalmiray@yahoo.com'
         ]
     ]
-    String title = 'JasperReports integration'
+    String title = 'Generate barcode images'
     // accepts Markdown syntax. See http://daringfireball.net/projects/markdown/ for details
     String description = '''
-Provides integration with [Barcode4j][1].
+Generates barcode images using [Barcode4j][1] and QRCode using [QRGen][2].
 
 Usage
 -----
@@ -61,10 +61,12 @@ The following nodes will become available on a View script upon installing this 
 | barcode | generator         | String           | yes         | no         | defaults to `codabar`                 |
 |         | barcodeGenerator  | BarcodeGenerator | no          | no         | alternate way to register a generator |
 |         | message           | String           | yes         | no         | the text to code                      |
+| qrcode  | message           | String           | yes         | no         | the text to code                      |
 
 Valid values for `generator` are: codabar, code39, postnet, intl2of5, ean-128, royal-mail-cbc, ean-13, datamatrix, code128, 
 ean128, pdf417, upc-a, upc-e, usps4cb, ean-8
 
 [1]: http://barcode4j.sourceforge.net/
+[2]: http://kenglxn.github.com/QRGen/
 '''
 }

@@ -13,7 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package griffon.barcode4j;
+
+package griffon.plugins.barcode;
 
 import java.awt.Graphics2D;
 

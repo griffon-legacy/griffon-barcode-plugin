@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package griffon.barcode4j;
+package griffon.plugins.barcode;
 
 import java.awt.Color;
 import java.awt.Graphics;

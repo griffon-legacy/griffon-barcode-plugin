@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
+import griffon.plugins.barcode.QRCode;
 import griffon.util.ApplicationHolder;
-import griffon.barcode4j.JBarcode;
+import griffon.plugins.barcode.JBarcode;
 import org.codehaus.griffon.runtime.core.AbstractGriffonAddon;
 
 /**
@@ -25,5 +26,6 @@ public class BarcodeGriffonAddon extends AbstractGriffonAddon {
     public BarcodeGriffonAddon() {
         super(ApplicationHolder.getApplication());
         factories.put("barcode", JBarcode.class);
+        factories.put("qrcode", QRCode.class);
     }
 }
